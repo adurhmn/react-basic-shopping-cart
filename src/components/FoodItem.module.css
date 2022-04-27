@@ -1,0 +1,76 @@
+.foodItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.price {
+  color: var(--color-theme--light);
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+
+.countLabel {
+  font-weight: 800;
+  font-size: 1.9rem;
+}
+
+.button {
+  display: block;
+  margin: 1.3rem auto 0 auto;
+  padding: 1rem 4rem;
+  background-color: var(--color-theme);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.button:hover {
+  box-shadow: 0 5px 10px var(--color-theme--light);
+}
+
+.button:active {
+  transform: scale(0.95) translateY(2px);
+}
+
+.button::before {
+  content: "Added!";
+  color: var(--color-theme);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -7rem;
+  display: none;
+}
+
+.button:active::before {
+  display: initial;
+}
+
+.input {
+  width: 7rem;
+  padding: 0.4rem 1rem;
+  margin-left: 1rem;
+  border: var(--border--thin);
+  border-radius: 5px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 650px) {
+  .foodItem {
+    flex-direction: column;
+    gap: 3rem;
+    text-align: center;
+  }
+}

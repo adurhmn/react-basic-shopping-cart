@@ -21,6 +21,11 @@
   transform: translate(-50%, -50%);
 }
 
+.modalFoodItems {
+  max-height: 70vh;
+  overflow: scroll;
+}
+
 .modalFoodItems > * {
   margin-bottom: 4rem;
 }

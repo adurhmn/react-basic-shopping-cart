@@ -80,17 +80,17 @@ export default function Modal(props) {
   const modalFrame = document.querySelector("#modalFrame");
   const foodMenu = React.useContext(FoodData);
 
-  const overlayClickHandler = function (e) {
-    if (e.target.getAttribute("id") === "modalOverlay") props.closeModal();
-  };
-
   const modal = (
-    <div
-      className={styles.overlay}
-      id="modalOverlay"
-      onClick={overlayClickHandler}
-    >
-      <div className={styles.modal} id="modalContent">
+    <React.Fragment>
+      {/* Back Drop / Overlay*/}
+      <div
+        className={styles.overlay}
+        onClick={() => {
+          props.closeModal();
+        }}
+      ></div>
+      {/* Modal Content */}
+      <div className={styles.modal}>
         <ul className={styles.modalFoodItems}>
           {Object.entries(props.foodCart).map(([id, count]) => {
             totalPrice += foodMenu[id].price * count;
@@ -108,7 +108,7 @@ export default function Modal(props) {
         </ul>
         <Total totalPrice={totalPrice} closeModal={props.closeModal} />
       </div>
-    </div>
+    </React.Fragment>
   );
 
   return ReactDOM.createPortal(modal, modalFrame);

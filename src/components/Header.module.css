@@ -30,7 +30,11 @@
   background-color: var(--color-theme--light);
 }
 
-/* @keyframes bubble {
+.bubbleUp {
+  animation: bubble 0.3s ease-in-out;
+}
+
+@keyframes bubble {
   0% {
     transform: scale(1);
   }
@@ -42,7 +46,7 @@
   100% {
     transform: scale(1);
   }
-} */
+}
 
 /* /////////////////////////////////////////////////////// */
 /* MEDIA QUERIES*/

@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./App.module.css";
-import Header from "./components/Header";
-import BodyWrapper from "./components/BodyWrapper";
-import FoodItems from "./components/FoodItems";
-import Modal from "./components/Modal";
+import Header from "./components/UI/Header";
+import BodyWrapper from "./components/UI/BodyWrapper";
+import FoodItems from "./components/Food/FoodItems";
+import Modal from "./components/Cart/Modal";
 
 const cartManager = function (prevState, { type, id, count }) {
   if (type === "REMOVE") {
@@ -29,31 +29,25 @@ const cartManager = function (prevState, { type, id, count }) {
 };
 
 export default function App() {
-  const [foodCart, updateFoodCart] = React.useReducer(
-    cartManager,
-    new Object()
-  );
+  const [foodCart, updateFoodCart] = React.useReducer(cartManager, {});
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
-  const getCartCount = (cart) =>
-    Object.values(cart).reduce((acc, cur) => acc + cur, 0);
+
+  const cartCount = Object.values(foodCart).reduce((acc, cur) => acc + cur, 0);
 
   return (
     <React.Fragment>
-      <Header
-        openModal={() => setModalIsOpen(true)}
-        cartCount={getCartCount(foodCart)}
-      />
+      <Header openModal={() => setModalIsOpen(true)} cartCount={cartCount} />
+      {modalIsOpen && (
+        <Modal
+          closeModal={() => setModalIsOpen(false)}
+          foodCart={foodCart}
+          updateFoodCart={(dispatchOption) => updateFoodCart(dispatchOption)}
+        />
+      )}
       <BodyWrapper>
         <FoodItems
           updateFoodCart={(dispatchOption) => updateFoodCart(dispatchOption)}
         />
-        {modalIsOpen && (
-          <Modal
-            closeModal={() => setModalIsOpen(false)}
-            foodCart={foodCart}
-            updateFoodCart={(dispatchOption) => updateFoodCart(dispatchOption)}
-          />
-        )}
       </BodyWrapper>
       <footer className={styles.footerBox}>
         <p>

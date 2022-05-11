@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./FoodItems.module.css";
 import FoodItem from "./FoodItem";
-import FoodData from "./food-data";
+import FoodData from "../Context/food-data";
 
 export default function FoodItems(props) {
   const foodMenu = React.useContext(FoodData);

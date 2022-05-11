@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import styles from "./Modal.module.css";
-import FoodData from "./food-data";
+import FoodData from "../Context/food-data";
 
 export const ModalFoodItem = function (props) {
   // console.log(props);

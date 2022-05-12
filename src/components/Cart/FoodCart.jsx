@@ -14,8 +14,8 @@ const Total = function (props) {
           Close
         </button>
         <button
-          className={`${styles.button} ${styles.buttonDark}`}
-          onClick={() => console.log(`Ordering for ₹${props.totalPrice}...`)}
+          className={`${styles.button} ${styles["button--dark"]}`}
+          onClick={props.order}
           disabled={props.totalPrice === 0}
         >
           Order
@@ -28,22 +28,28 @@ const Total = function (props) {
 const FoodCart = function (props) {
   return (
     <Fragment>
-      <ul className={styles.foodCart}>
-        {props.foodCart.cartItems.map((item) => {
-          return (
-            <CartItem
-              key={item.id}
-              itemInfo={item}
-              updateFoodCart={(dispatchOption) =>
-                props.updateFoodCart(dispatchOption)
-              }
-            />
-          );
-        })}
-      </ul>
+      {props.foodCart.cartItems.length === 0 ? (
+        <h3 className="alertMsg">Nothing in cart!</h3>
+      ) : (
+        <ul className={styles.foodCart}>
+          {props.foodCart.cartItems.map((item) => {
+            return (
+              <CartItem
+                key={item.id}
+                itemInfo={item}
+                updateFoodCart={(dispatchOption) =>
+                  props.updateFoodCart(dispatchOption)
+                }
+              />
+            );
+          })}
+        </ul>
+      )}
+
       <Total
         totalPrice={props.foodCart.cartTotalPrice}
         closeModal={props.closeModal}
+        order={props.order}
       />
     </Fragment>
   );

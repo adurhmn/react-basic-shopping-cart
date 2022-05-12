@@ -4,6 +4,8 @@
 }
 
 .total {
+  margin-top: 2rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,7 +33,7 @@
   margin-right: 1.5rem;
 }
 
-.buttonDark {
+.button--dark {
   background-color: var(--color-theme);
   color: white;
 }

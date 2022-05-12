@@ -1,0 +1,122 @@
+.checkout {
+  display: grid;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "fname lname"
+    "phone mail"
+    "address address"
+    "agreement agreement"
+    "cancel submit";
+}
+
+.checkoutTextInput {
+  width: 100%;
+  padding: 0.5rem;
+  resize: none;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.checkoutTextInput:invalid {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-color: rgba(255, 0, 0, 0.6);
+}
+
+.checkoutTextInput:focus {
+  outline: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.fname {
+  grid-area: fname;
+}
+
+.lname {
+  grid-area: lname;
+}
+
+.phone {
+  grid-area: phone;
+}
+
+.mail {
+  grid-area: mail;
+}
+
+.address {
+  grid-area: address;
+  height: 8rem;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.agreement {
+  grid-area: agreement;
+  white-space: nowrap;
+
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cancel {
+  grid-area: cancel;
+}
+
+.submit {
+  grid-area: submit;
+}
+
+.button {
+  padding: 0.7rem 3rem;
+  border: var(--border--thin);
+  color: var(--color-theme);
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.button:active {
+  background-color: var(--color-theme);
+  color: white;
+}
+
+.button:disabled {
+  background-color: grey;
+  border-color: currentColor;
+}
+
+.button--dark {
+  background-color: var(--color-theme);
+  color: white;
+}
+
+.buttonDark:active {
+  background-color: white;
+  color: var(--color-theme);
+}
+
+@media only screen and (max-width: 650px) {
+  .checkout {
+    grid-template-areas:
+      "fname fname"
+      "lname lname"
+      "phone phone"
+      "mail mail"
+      "address address"
+      "agreement agreement"
+      "cancel submit";
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .checkout {
+    column-gap: 0.7rem;
+  }
+
+  .agreement {
+    font-size: 1.3rem;
+  }
+}

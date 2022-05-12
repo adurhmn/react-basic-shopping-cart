@@ -35,7 +35,8 @@ body {
 }
 
 input,
-button {
+button,
+textarea {
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
@@ -54,6 +55,14 @@ button {
 :global(#root) {
   min-height: 100vh;
   position: relative;
+}
+
+:global(.alertMsg) {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 5px;
+  /* color: white; */
+  /* background-color: var(--color-theme--less-visible); */
 }
 
 /* /////////////////////////////////////////////////////// */

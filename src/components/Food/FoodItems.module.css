@@ -7,7 +7,3 @@
   max-width: 90rem;
   border-radius: var(--container-radius);
 }
-
-.errorMsg {
-  text-align: center;
-}

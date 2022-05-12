@@ -4,8 +4,8 @@ import Header from "./components/UI/Header";
 import Footer from "./components/UI/Footer";
 import BodyWrapper from "./components/UI/BodyWrapper";
 import FoodItems from "./components/Food/FoodItems";
-import FoodCart from "./components/Cart/FoodCart";
 import Modal from "./components/Cart/Modal";
+import ModalContent from "./components/Cart/ModalContent";
 
 const cartManager = function (foodData, prevState, { type, id, count }) {
   const {
@@ -97,7 +97,7 @@ const App = function () {
       />
       {modalIsOpen && (
         <Modal closeModal={() => setModalIsOpen(false)}>
-          <FoodCart
+          <ModalContent
             closeModal={() => setModalIsOpen(false)}
             foodCart={foodCart}
             updateFoodCart={(dispatchOption) => updateFoodCart(dispatchOption)}

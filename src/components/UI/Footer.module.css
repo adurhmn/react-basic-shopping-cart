@@ -1,0 +1,21 @@
+.footerBox {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--color-theme);
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.footerLink {
+  color: white;
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}

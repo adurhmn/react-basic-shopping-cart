@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 10;
+  z-index: 20;
 }
 
 .modal {
@@ -14,98 +14,9 @@
   background-color: white;
   padding: 3rem;
   border-radius: var(--container-radius);
-  z-index: 20;
-  position: absolute;
+  z-index: 30;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.modalFoodItems {
-  max-height: 60vh;
-  overflow: scroll;
-}
-
-.modalFoodItems > * {
-  margin-bottom: 4rem;
-}
-
-.modalFoodItems > *::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: var(--color-theme);
-  opacity: 0.6;
-  left: 50%;
-  bottom: -2rem;
-  transform: translateX(-50%);
-}
-
-.modalFoodItem {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.button {
-  padding: 0.7rem 1rem;
-  border: var(--border--thin);
-  color: var(--color-theme);
-  border-radius: 10px;
-  background-color: white;
-}
-
-.button:disabled {
-  background-color: grey;
-}
-
-.button:not(:last-child) {
-  margin-right: 1.5rem;
-}
-
-.buttonTotal {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
-.buttonDark {
-  background-color: var(--color-theme);
-  color: white;
-}
-
-.price,
-.count {
-  font-weight: 700;
-}
-
-.price {
-  color: var(--color-theme);
-  font-size: 1.7rem;
-}
-
-.count {
-  padding: 0.5rem;
-  border: var(--border--thin);
-  border-radius: 5px;
-  margin-left: 3rem;
-}
-
-.totalPrice {
-  text-align: right;
-  margin-bottom: 1rem;
-}
-
-@media only screen and (max-width: 650px) {
-  .modalFoodItem {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .totalPrice {
-    text-align: center;
-  }
 }

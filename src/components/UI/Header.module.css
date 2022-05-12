@@ -2,6 +2,11 @@
   color: white;
   padding: 1.5rem 8rem;
   background-color: var(--color-theme);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 
   display: flex;
   align-items: center;
@@ -31,7 +36,7 @@
 }
 
 .bubbleUp {
-  animation: bubble 0.3s ease-in-out;
+  animation: bubble 0.2s ease-out;
 }
 
 @keyframes bubble {
@@ -39,7 +44,15 @@
     transform: scale(1);
   }
 
-  50% {
+  15% {
+    transform: scale(0.9);
+  }
+
+  45% {
+    transform: scale(1.1);
+  }
+
+  70% {
     transform: scale(1.1);
   }
 

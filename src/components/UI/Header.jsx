@@ -12,7 +12,7 @@ export default function Header(props) {
     // removes the animation class from cart once animation is completed
     const bubbleTimer = setTimeout(() => {
       setBubbleAdded(false);
-    }, 300);
+    }, 200);
 
     // clean up function
     return () => {
@@ -21,7 +21,7 @@ export default function Header(props) {
   }, [props.cartCount]);
 
   const cartClass = `${styles.cart} ${bubbleAdded ? styles.bubbleUp : ""}`;
-  console.log(cartClass);
+  // console.log(cartClass);
 
   return (
     <header className={styles.header}>

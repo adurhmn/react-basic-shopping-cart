@@ -6,6 +6,7 @@ html {
   --color-theme: rgb(153, 8, 8);
   --color-theme--dark: rgb(100, 24, 24);
   --color-theme--light: rgb(216, 81, 18);
+  --color-theme--less-visible: rgba(153, 8, 8, 0.6);
   /* --color-theme: rgb(153, 8, 85);
   --color-theme--dark: rgb(100, 24, 62);
   --color-theme--light: rgb(216, 18, 110); */
@@ -25,7 +26,12 @@ body {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.5;
-  background-color: rgb(46, 46, 46);
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("./img/background.jpg");
+  background-size: cover;
 }
 
 input,
@@ -45,27 +51,14 @@ button {
   font-style: italic;
 }
 
+:global(#root) {
+  min-height: 100vh;
+  position: relative;
+}
+
 /* /////////////////////////////////////////////////////// */
 /* APP */
 /* /////////////////////////////////////////////////////// */
-.footerBox {
-  padding: 1rem;
-  background-color: var(--color-theme);
-  color: white;
-  text-align: center;
-  font-size: 1.2rem;
-  opacity: 0.6;
-}
-
-.footerLink {
-  color: white;
-  text-decoration: none;
-  transition: text-decoration 0.3s;
-}
-
-.footerLink:hover {
-  text-decoration: underline;
-}
 
 /* /////////////////////////////////////////////////////// */
 /* MEDIA QUERIES*/

@@ -112,7 +112,6 @@ const Checkout = function (props) {
             id="checkoutAgreement"
             onChange={validateForm}
             ref={agreement}
-            checked
             required
           />
           <label htmlFor="checkoutAgreement">

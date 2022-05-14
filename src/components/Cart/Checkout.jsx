@@ -58,7 +58,6 @@ const Checkout = function (props) {
             pattern="^[A-Za-z ]+$"
             onChange={validateForm}
             ref={fName}
-            defaultValue="Abdur"
             required
           />
         </div>
@@ -71,7 +70,6 @@ const Checkout = function (props) {
             pattern="^[A-Za-z ]+$"
             onChange={validateForm}
             ref={lName}
-            defaultValue="Rahman"
             required
           />
         </div>
@@ -84,7 +82,6 @@ const Checkout = function (props) {
             pattern="[0-9]{10}"
             onChange={validateForm}
             ref={phone}
-            defaultValue="9677161761"
             required
           />
         </div>
@@ -96,7 +93,6 @@ const Checkout = function (props) {
             className={styles.checkoutTextInput}
             onChange={validateForm}
             ref={email}
-            defaultValue="abdurmrahman7@gmail.com"
             required
           />
         </div>
@@ -107,7 +103,6 @@ const Checkout = function (props) {
             className={styles.checkoutTextInput}
             onChange={validateForm}
             ref={address}
-            defaultValue="31/12, 7th Street Eruvadi"
             required
           />
         </div>

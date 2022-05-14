@@ -70,34 +70,6 @@
   grid-area: submit;
 }
 
-.button {
-  padding: 0.7rem 3rem;
-  border: var(--border--thin);
-  color: var(--color-theme);
-  border-radius: 10px;
-  background-color: #ffffff;
-}
-
-.button:active {
-  background-color: var(--color-theme);
-  color: white;
-}
-
-.button:disabled {
-  background-color: grey;
-  border-color: currentColor;
-}
-
-.button--dark {
-  background-color: var(--color-theme);
-  color: white;
-}
-
-.buttonDark:active {
-  background-color: white;
-  color: var(--color-theme);
-}
-
 @media only screen and (max-width: 650px) {
   .checkout {
     grid-template-areas:

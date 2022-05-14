@@ -6,11 +6,12 @@ const Receipt = function (props) {
   return (
     <div className="alertMsg">
       <h1>
-        Hello, {props.formData.fName.current.value}{" "}
-        {props.formData.lName.current.value}
+        Hello, {props.formData.fName} {props.formData.lName}
       </h1>
       <br />
-      <h4>Your order is placed, will be delivered within 45 mins...</h4>
+      <h4 className="successMsg">
+        Your order has been sent, it will be delivered within 45 mins...
+      </h4>
     </div>
   );
 };

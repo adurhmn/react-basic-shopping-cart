@@ -1,5 +1,6 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import styles from "./Checkout.module.css";
+import btnStyles from "../../assets/css/button.module.css";
 
 const Checkout = function (props) {
   const [formIsValid, setFormIsValid] = useState(false);
@@ -26,6 +27,25 @@ const Checkout = function (props) {
     }
   };
 
+  useEffect(validateForm, []); // for testing purpose
+
+  const sendDataToServer = async function () {
+    let date = new Date();
+    let now = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`;
+
+    const res = await fetch(
+      "https://react-project-7ced2-default-rtdb.firebaseio.com/orders.json",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          name: `${fName.current.value} ${lName.current.value}`,
+          date: now,
+        }),
+      }
+    );
+    console.log(res.status);
+  };
+
   return (
     <Fragment>
       <form className={styles.checkout}>
@@ -38,6 +58,7 @@ const Checkout = function (props) {
             pattern="^[A-Za-z ]+$"
             onChange={validateForm}
             ref={fName}
+            defaultValue="Abdur"
             required
           />
         </div>
@@ -50,6 +71,7 @@ const Checkout = function (props) {
             pattern="^[A-Za-z ]+$"
             onChange={validateForm}
             ref={lName}
+            defaultValue="Rahman"
             required
           />
         </div>
@@ -62,6 +84,7 @@ const Checkout = function (props) {
             pattern="[0-9]{10}"
             onChange={validateForm}
             ref={phone}
+            defaultValue="9677161761"
             required
           />
         </div>
@@ -73,6 +96,7 @@ const Checkout = function (props) {
             className={styles.checkoutTextInput}
             onChange={validateForm}
             ref={email}
+            defaultValue="abdurmrahman7@gmail.com"
             required
           />
         </div>
@@ -83,6 +107,7 @@ const Checkout = function (props) {
             className={styles.checkoutTextInput}
             onChange={validateForm}
             ref={address}
+            defaultValue="31/12, 7th Street Eruvadi"
             required
           />
         </div>
@@ -92,6 +117,7 @@ const Checkout = function (props) {
             id="checkoutAgreement"
             onChange={validateForm}
             ref={agreement}
+            checked
             required
           />
           <label htmlFor="checkoutAgreement">
@@ -99,7 +125,7 @@ const Checkout = function (props) {
           </label>
         </div>
         <button
-          className={`${styles.cancel} ${styles.button}`}
+          className={`${styles.cancel} ${btnStyles.btnPrimary}`}
           onClick={(e) => {
             e.preventDefault();
             props.goBack();
@@ -108,17 +134,18 @@ const Checkout = function (props) {
           Cancel
         </button>
         <button
-          className={`${styles.submit} ${styles.button} ${styles["button--dark"]}`}
+          className={`${styles.submit} ${btnStyles.btnPrimary} ${btnStyles["btnPrimary--dark"]}`}
           disabled={!formIsValid}
           onClick={(e) => {
             e.preventDefault();
+            sendDataToServer();
             props.shipOrder({
-              fName,
-              lName,
-              phone,
-              email,
-              address,
-              agreement,
+              fName: fName.current.value,
+              lName: lName.current.value,
+              phone: phone.current.value,
+              email: email.current.value,
+              address: address.current.value,
+              agreement: agreement.current.value,
             });
           }}
         >

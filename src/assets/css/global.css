@@ -30,7 +30,7 @@ body {
       rgba(0, 0, 0, 0.5) 0%,
       rgba(0, 0, 0, 0.5) 100%
     ),
-    url("./img/background.jpg");
+    url("../img/background.jpg");
   background-size: cover;
 }
 
@@ -42,27 +42,35 @@ textarea {
   font-size: inherit;
 }
 
-:global(.logo) {
+.logo {
   font-size: 4rem;
   font-weight: 800;
 }
 
-:global(.italic) {
+.italic {
   font-weight: 500;
   font-style: italic;
 }
 
-:global(#root) {
+#root {
   min-height: 100vh;
   position: relative;
 }
 
-:global(.alertMsg) {
+.alertMsg {
   text-align: center;
   padding: 2rem 1rem;
   border-radius: 5px;
   /* color: white; */
   /* background-color: var(--color-theme--less-visible); */
+}
+
+.successMsg {
+  color: green;
+}
+
+.u-mg-r-small {
+  margin-right: 1.5rem;
 }
 
 /* /////////////////////////////////////////////////////// */

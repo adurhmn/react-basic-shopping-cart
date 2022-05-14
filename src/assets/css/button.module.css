@@ -1,0 +1,40 @@
+.btnPrimary {
+  padding: 0.7rem 3rem;
+  border: var(--border--thin);
+  color: var(--color-theme);
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.btnPrimary:active {
+  background-color: var(--color-theme);
+  color: white;
+}
+
+.btnPrimary:disabled {
+  background-color: grey;
+  border-color: currentColor;
+}
+
+.btnPrimary--dark {
+  background-color: var(--color-theme);
+  color: white;
+}
+
+.btnPrimary--dark:active {
+  background-color: white;
+  color: var(--color-theme);
+}
+
+.btnSecondary {
+  padding: 0.7rem 1rem;
+  border: var(--border--thin);
+  color: var(--color-theme);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.btnSecondary:active {
+  background-color: var(--color-theme--light);
+  color: white;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useReducer, useEffect } from "react";
-import styles from "./App.module.css";
+import "./assets/css/global.css";
 import Header from "./components/UI/Header";
 import Footer from "./components/UI/Footer";
 import BodyWrapper from "./components/UI/BodyWrapper";

@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import styles from "./FoodCart.module.css";
+import btnStyles from "../../assets/css/button.module.css";
 import CartItem from "./CartItem";
 
 const Total = function (props) {
@@ -10,11 +11,14 @@ const Total = function (props) {
       </div>
       <div>
         <h1 className={styles.totalPrice}>₹{props.totalPrice}</h1>
-        <button className={styles.button} onClick={() => props.closeModal()}>
+        <button
+          className={`${btnStyles.btnPrimary} u-mg-r-small`}
+          onClick={() => props.closeModal()}
+        >
           Close
         </button>
         <button
-          className={`${styles.button} ${styles["button--dark"]}`}
+          className={`${btnStyles.btnPrimary} ${btnStyles["btnPrimary--dark"]}`}
           onClick={props.order}
           disabled={props.totalPrice === 0}
         >

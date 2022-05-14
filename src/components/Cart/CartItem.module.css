@@ -20,22 +20,10 @@
   color: var(--color-theme);
   font-size: 1.7rem;
 }
-.button {
-  padding: 0.7rem 1rem;
-  border: var(--border--thin);
-  color: var(--color-theme);
-  border-radius: 10px;
-  background-color: white;
-}
-
-.button:active {
-  background-color: var(--color-theme--light);
-  color: white;
-}
-
+/* 
 .button:not(:last-child) {
   margin-right: 1.5rem;
-}
+} */
 
 .count {
   padding: 0.5rem;

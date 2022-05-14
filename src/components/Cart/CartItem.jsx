@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./CartItem.module.css";
+import btnStyles from "../../assets/css/button.module.css";
 
 const CartItem = function (props) {
   return (
@@ -11,7 +12,7 @@ const CartItem = function (props) {
       </div>
       <div>
         <button
-          className={styles.button}
+          className={`${btnStyles.btnSecondary} u-mg-r-small`}
           onClick={() => {
             props.updateFoodCart({
               type: "REMOVE",
@@ -23,7 +24,7 @@ const CartItem = function (props) {
           <i className="fa-solid fa-minus"></i>
         </button>
         <button
-          className={styles.button}
+          className={btnStyles.btnSecondary}
           onClick={() => {
             props.updateFoodCart({
               type: "ADD",

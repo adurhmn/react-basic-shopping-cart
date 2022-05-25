@@ -7,58 +7,57 @@ import FoodItems from "./components/Food/FoodItems";
 import Modal from "./components/Cart/Modal";
 import ModalContent from "./components/Cart/ModalContent";
 
-const cartManager = function (foodData, prevState, { type, id, count }) {
+const cartManager = function (prevState, action) {
   const {
     cartItems: prevCartItems,
     cartTotalCount: prevCartTotalCount,
     cartTotalPrice: prevCartTotalPrice,
   } = prevState;
 
-  const itemPrice = foodData.find((item) => item.id === id).price * count;
+  const { id, price } = action.foodData;
 
-  switch (type) {
+  switch (action.type) {
     case "REMOVE":
       // console.log("remove food", id, count);
+      const { itemCount, removeCount } = action;
 
       // if it is the last count, remove food from cart
-      if (prevCartItems.find((item) => item.id === id).count === count) {
+      if (itemCount === removeCount) {
         return {
           cartItems: prevCartItems.filter((item) => item.id !== id),
-          cartTotalCount: prevCartTotalCount - count,
-          cartTotalPrice: prevCartTotalPrice - itemPrice,
+          cartTotalCount: prevCartTotalCount - removeCount,
+          cartTotalPrice: prevCartTotalPrice - price * removeCount,
         };
       } else {
         // else, reduce food count
         return {
           cartItems: prevCartItems.map((item) =>
-            item.id === id ? { ...item, count: item.count - count } : item
+            item.id === id ? { ...item, count: item.count - removeCount } : item
           ),
-          cartTotalCount: prevCartTotalCount - count,
-          cartTotalPrice: prevCartTotalPrice - itemPrice,
+          cartTotalCount: prevCartTotalCount - removeCount,
+          cartTotalPrice: prevCartTotalPrice - price * removeCount,
         };
       }
 
     case "ADD":
       // console.log("add food", id, count);
+      const { addCount, foodData } = action;
 
       // if food is in cart, increase count
       if (prevCartItems.some((item) => item.id === id)) {
         return {
           cartItems: prevCartItems.map((item) =>
-            item.id === id ? { ...item, count: item.count + count } : item
+            item.id === id ? { ...item, count: item.count + addCount } : item
           ),
-          cartTotalCount: prevCartTotalCount + count,
-          cartTotalPrice: prevCartTotalPrice + itemPrice,
+          cartTotalCount: prevCartTotalCount + addCount,
+          cartTotalPrice: prevCartTotalPrice + price * addCount,
         };
       } else {
         // else, add food
         return {
-          cartItems: [
-            ...prevCartItems,
-            { ...foodData.find((item) => item.id === id), count: count },
-          ],
-          cartTotalCount: prevCartTotalCount + count,
-          cartTotalPrice: prevCartTotalPrice + itemPrice,
+          cartItems: [...prevCartItems, { ...foodData, count: addCount }],
+          cartTotalCount: prevCartTotalCount + addCount,
+          cartTotalPrice: prevCartTotalPrice + price * addCount,
         };
       }
 
@@ -69,14 +68,11 @@ const cartManager = function (foodData, prevState, { type, id, count }) {
 
 const App = function () {
   const [foodData, setFoodData] = useState([]);
-  const [foodCart, updateFoodCart] = useReducer(
-    cartManager.bind(null, foodData),
-    {
-      cartItems: [],
-      cartTotalCount: 0,
-      cartTotalPrice: 0,
-    }
-  );
+  const [foodCart, updateFoodCart] = useReducer(cartManager, {
+    cartItems: [],
+    cartTotalCount: 0,
+    cartTotalPrice: 0,
+  });
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [dataFetchFailed, setDataFetchFailed] = useState(false);
 

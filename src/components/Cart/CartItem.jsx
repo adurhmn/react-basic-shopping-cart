@@ -3,12 +3,14 @@ import styles from "./CartItem.module.css";
 import btnStyles from "../../assets/css/button.module.css";
 
 const CartItem = function (props) {
+  const { name, price, count, id } = props.itemInfo;
+
   return (
     <li className={styles.cartItem}>
       <div>
-        <h2>{props.itemInfo.name}</h2>
-        <span className={styles.price}>₹{props.itemInfo.price}</span>
-        <span className={styles.count}>x{props.itemInfo.count}</span>
+        <h2>{name}</h2>
+        <span className={styles.price}>₹{price}</span>
+        <span className={styles.count}>x{count}</span>
       </div>
       <div>
         <button
@@ -16,8 +18,13 @@ const CartItem = function (props) {
           onClick={() => {
             props.updateFoodCart({
               type: "REMOVE",
-              id: props.itemInfo.id,
-              count: 1,
+              removeCount: 1,
+              itemCount: count,
+              foodData: {
+                name,
+                price,
+                id,
+              },
             });
           }}
         >
@@ -28,8 +35,12 @@ const CartItem = function (props) {
           onClick={() => {
             props.updateFoodCart({
               type: "ADD",
-              id: props.itemInfo.id,
-              count: 1,
+              addCount: 1,
+              foodData: {
+                name,
+                price,
+                id,
+              },
             });
           }}
         >

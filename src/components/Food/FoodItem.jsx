@@ -27,8 +27,12 @@ export default function FoodItem(props) {
           onClick={() => {
             props.updateFoodCart({
               type: "ADD",
-              id: id,
-              count: +countInput.current.value,
+              addCount: +countInput.current.value,
+              foodData: {
+                name,
+                price,
+                id,
+              },
             });
           }}
         >

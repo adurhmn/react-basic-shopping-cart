@@ -25,7 +25,7 @@ export default function Header(props) {
 
   return (
     <header className={styles.header}>
-      <span className="logo">AbdurMeals</span>
+      <span className="logo">ReactShoppingCart</span>
       <div className={cartClass} onClick={props.openModal}>
         <span>
           <i className="fa-solid fa-cart-shopping"></i>
